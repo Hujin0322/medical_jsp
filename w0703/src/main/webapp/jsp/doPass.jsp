@@ -9,14 +9,13 @@
 	</head>
 	<body>
 		<%
-			String name = request.getParameter("name");
-			name = URLEncoder.encode(name,"utf-8");
+			String name = URLEncoder.encode(request.getParameter("name"),"utf-8");
 			int age = Integer.parseInt(request.getParameter("age"));
 			
 			if(age>=18){
-				response.sendRedirect("pass.jsp?age="+age);
+				response.sendRedirect("pass.jsp?name="+name+"&age="+age);
 			}else{
-				response.sendRedirect("nopass.jsp?age="+age);
+				response.sendRedirect("nopass.jsp?name="+name+"&age="+age);
 			}
 		
 		%>
